@@ -1,0 +1,15 @@
+CMAKE_MINIMUM_REQUIRED ( VERSION 2.8.12 )
+
+SET_TARGET_PROPERTIES(${name} PROPERTIES PREFIX "lib")
+
+# Default to release build type
+if(NOT CMAKE_BUILD_TYPE)
+   set(CMAKE_BUILD_TYPE "RelWithDebInfo")
+endif()
+
+IF ( CURVER )
+	ADD_DEFINITIONS(-DCURVER="${CURVER}")
+ENDIF()
+
+ADD_SUBDIRECTORY(mbedtls-2.3.0)
+
